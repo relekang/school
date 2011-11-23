@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 import core
 
 class BaseModel (models.Model):
-    creator = models.ForeignKey(User, related_name='creator')
-    saved_by = models.ForeignKey(User, related_name='saved_by')
+    creator = models.ForeignKey(User, related_name='%(class)s_creator')
+    saved_by = models.ForeignKey(User, related_name='%(class)s_saved_by')
     date_created = models.DateTimeField()
     date_saved = models.DateTimeField()
 

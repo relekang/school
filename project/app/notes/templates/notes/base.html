@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block nav %}
+    <a href="{% url app.notes.views.list %}">{% trans "Back" %}</a>
+{% endblock %}
+
+{% block content %}
+    {% if notes %}
+    {% for note in notes %}
+        <a href="{% url app.notes.views.view note.pk %}">{{ note }}</a>
+    {% endfor %}
+    {% endif %}
+    {% if courses %}
+        {% for course in courses %}
+            <a href="{% url app.notes.views.list course.code %}">{{ course }}</a>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
