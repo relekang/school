@@ -1,0 +1,18 @@
+{% load markup %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://folk.ntnu.no/rolferl/MathJax/MathJax.js"></script>
+		<style>
+		body{font-family:sans-serif;font-size:0.9em;background:#F8F8F8}
+		section{width: 80%;max-width:800px; margin: 1em auto;}
+		</style>
+	</head>
+	<body>
+		<section>
+			{% block content %}
+			{% if note %} {{ note.content|markdown }}{% endif %}
+			{% endblock %}
+		</section>
+	</body>
+ </html>

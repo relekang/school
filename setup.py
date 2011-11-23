@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name = "",
+    name = "schoolnotes",
     version = "1.0",
     url = 'http://',
     license = 'Proprietary',
