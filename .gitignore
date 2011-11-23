@@ -1,0 +1,21 @@
+#file endings not of generated files
+*.pyc
+*.pyo
+*.orig
+*~
+*.egg-info
+.*
+project.db
+pickle*.txt
+#generated buildout stuff
+bin
+develop-eggs
+downloads
+eggs
+omelette
+parts
+.installed.cfg
+project/static/readme
+project/static/announcement
+project/static/event
+*.DS_STORE
