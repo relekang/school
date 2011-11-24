@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render_to_response
 from app.notes.models import Course
 from project.app.notes.models import Note
@@ -13,7 +14,7 @@ def list (request, course=None):
     return render_to_response('notes/base.html',
                              {'notes': notes,
                               'courses': courses})
-
+@login_required
 def view (request, id):
     note = get_object_or_404(Note,pk=id)
     return render_to_response('notes/view.html',
