@@ -2,18 +2,22 @@
 {% load i18n %}
 
 {% block nav %}
-    <a href="{% url app.notes.views.list %}">{% trans "Back" %}</a>
+    {% if not courses %}<a href="{% url app.notes.views.list %}">{% trans "Back" %}</a>{% endif %}
 {% endblock %}
 
 {% block content %}
     {% if notes %}
+        <ul class="big-list">
     {% for note in notes %}
-        <a href="{% url app.notes.views.view note.pk %}">{{ note }}</a>
+        <li><a href="{% url app.notes.views.view note.pk %}">{{ note }}</a></li>
     {% endfor %}
+        </ul>
     {% endif %}
     {% if courses %}
+        <ul class="big-list">
         {% for course in courses %}
-            <a href="{% url app.notes.views.list course.code %}">{{ course }}</a>
+            <li><a href="{% url app.notes.views.list course.code %}">{{ course }}</a></li>
         {% endfor %}
+        </ul>
     {% endif %}
 {% endblock %}
