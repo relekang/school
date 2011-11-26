@@ -22,4 +22,4 @@ class Note (BaseModel):
     def save(self, *args, **kwargs):
         super(Note, self).save(*args, **kwargs)
         timestamp = datetime.strftime(self.date_saved, '%d.%m.%y %I:%M')
-        cache.set('notetimestamp' + self.pk, timestamp)
+        cache.set('notetimestamp' + str(self.pk), timestamp)
