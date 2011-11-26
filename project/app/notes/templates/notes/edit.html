@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block nav %}
+    <a href="{% url app.notes.views.view note.pk %}">{% trans "Back to note" %}</a>
+{% endblock %}
+
+{% block content %}
+    {% include "form.html" %}
+{% endblock %}

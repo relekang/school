@@ -1,3 +1,31 @@
+.border-radius (@radius: 10px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+.box-shadow(@pref: inset 2px 2px 10px #DEDEDE){
+	-webkit-box-shadow:@pref;
+	-moz-box-shadow:@pref;
+	box-shadow:@pref;
+}
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+  background: @color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, @start),
+                               color-stop(1, @stop));
+  background: -ms-linear-gradient(bottom,
+                                  @start,
+                                  @stop);
+  background: -moz-linear-gradient(center bottom,
+                                   @start 0%,
+                                   @stop 100%);
+}
+
+
+
 body{
     margin:0;
     padding:0;
@@ -53,7 +81,43 @@ section{
             width: 100%;
         }
     }
-
+    input[type=text],
+    input[type=password],
+    textarea{
+        width: 100%;
+        margin: 0.4em auto;
+        padding: 0.4em;
+        font-size: 1.11em;
+        border: 1px solid silver;
+        display:block;
+        .border-radius(0.2em);
+        .box-shadow();
+    }
+    textarea{
+        height: 40em;
+    }
+    input[type=submit]{
+        max-width: 100px;
+        margin: 0.4em auto;
+        padding: 0.4em;
+        font-size: 0.94em;
+        border: 1px solid #222;
+        .border-radius(0.4em);
+        .gradient();
+    }
+    input[type=submit]:hover{
+        .gradient(#F5F5F5, #AAA, #DDD);
+    }
+    #login{
+        width: 200px;
+        margin: 4em auto;
+        input{
+            width: 100%;
+        }
+        input[type=submit]{
+            opacity: 0;
+        }
+    }
 }
 
 @media screen and (max-width: 400px){

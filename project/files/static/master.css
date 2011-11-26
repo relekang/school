@@ -47,6 +47,53 @@ section form {
 section form textarea {
   width: 100%;
 }
+section input[type=text], section input[type=password], section textarea {
+  width: 100%;
+  margin: 0.4em auto;
+  padding: 0.4em;
+  font-size: 1.11em;
+  border: 1px solid silver;
+  display: block;
+  -moz-border-radius: 0.2em;
+  -webkit-border-radius: 0.2em;
+  border-radius: 0.2em;
+  -webkit-box-shadow: inset 2px 2px 10px #dedede;
+  -moz-box-shadow: inset 2px 2px 10px #dedede;
+  box-shadow: inset 2px 2px 10px #dedede;
+}
+section textarea {
+  height: 40em;
+}
+section input[type=submit] {
+  max-width: 100px;
+  margin: 0.4em auto;
+  padding: 0.4em;
+  font-size: 0.94em;
+  border: 1px solid #222;
+  -moz-border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+  border-radius: 0.4em;
+  background: #f5f5f5;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eeeeee), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #eeeeee, #ffffff);
+  background: -moz-linear-gradient(center bottom, #eeeeee 0%, #ffffff 100%);
+}
+section input[type=submit]:hover {
+  background: #f5f5f5;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #aaaaaa), color-stop(1, #dddddd));
+  background: -ms-linear-gradient(bottom, #aaaaaa, #dddddd);
+  background: -moz-linear-gradient(center bottom, #aaaaaa 0%, #dddddd 100%);
+}
+section #login {
+  width: 200px;
+  margin: 4em auto;
+}
+section #login input {
+  width: 100%;
+}
+section #login input[type=submit] {
+  opacity: 0;
+}
 @media screen and (max-width: 400px) {
   section {
     width: 95%;
