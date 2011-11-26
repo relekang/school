@@ -5,9 +5,17 @@
 {% block nav %}
     <a href="{% url app.notes.views.list note.course.code %}">{% trans "Back" %}</a>
 {% endblock %}
-
+{% block include  %}
+    {% if preview %}
+    <script type="text/javascript" src="/static/js/notes.preview.js"></script>
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <header>{{ note.title }}</header>
-    <article>{{ note.content|markdown }}</article>
+    <article data-type="note"
+             data-id="{{ note.pk }}"
+             data-timestamp="{{ note.date_saved|date:"d.m.y h:i" }}">
+        {{ note.content|markdown }}
+    </article>
 {% endblock %}

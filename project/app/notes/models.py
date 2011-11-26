@@ -1,5 +1,7 @@
+from datetime import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.core.cache import cache
 from project.core.models import BaseModel
 
 
@@ -16,3 +18,8 @@ class Note (BaseModel):
 
     def __unicode__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        super(Note, self).save(*args, **kwargs)
+        timestamp = datetime.strftime(self.date_saved, '%d.%m.%y %I:%M')
+        cache.set('notetimestamp' + self.pk, timestamp)

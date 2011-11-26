@@ -17,6 +17,8 @@ DATABASES = {
 
 TIME_ZONE = 'Europe/Oslo'
 LANGUAGE_CODE = 'nb'
+TIME_FORMAT = 'H:i'
+DATE_FORMAT = 'd.m.y'
 SITE_ID = 1
 USE_I18N = True
 
