@@ -63,6 +63,7 @@ section input[type=text], section input[type=password], section textarea {
 }
 section textarea {
   height: 40em;
+  font-size: 0.8em;
 }
 section input[type=submit] {
   max-width: 100px;
@@ -93,6 +94,11 @@ section #login input {
 }
 section #login input[type=submit] {
   opacity: 0;
+}
+section ul.tagit input[type="text"] {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 @media screen and (max-width: 400px) {
   section {
