@@ -5,7 +5,7 @@ $(document).ready(function() {
 
         if (ev.type == 'keypress' && 115 == key && ev.ctrlKey) return false
         if (83 == key && ev.ctrlKey) {
-            if (ev.type != 'keypress') save_text()
+            if (ev.type != 'keypress') $("form").submit()
             return false
         }
     });
