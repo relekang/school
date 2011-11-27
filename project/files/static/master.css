@@ -22,6 +22,13 @@ section {
   max-width: 800px;
   margin: 1em auto;
 }
+section h1,
+section h2,
+section h3,
+section h4,
+section h5 {
+  margin-bottom: 0.4em;
+}
 section header {
   font-size: 1.8em;
 }
