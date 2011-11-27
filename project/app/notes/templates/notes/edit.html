@@ -5,6 +5,31 @@
     <a href="{% url app.notes.views.view note.pk %}">{% trans "Back to note" %}</a>
 {% endblock %}
 
+{% block include %}
+    <script src="/static/js/notes.edit.js"></script>
+    {% if form.tags %}
+    <script>
+        function enableTags(){
+            $.ajax({
+                url: "/notes/tags/",
+                type: "GET",
+                success: function(msg){
+                    alert(msg);
+                    $(function(){
+                        $('#id_tags').tagit({
+                            availableTags: msg,
+                            singleField: true,
+                            singleFieldNode: $('#id_tags')
+                        });
+                    });
+                }
+            });
+        }
+        enableTags();
+	</script>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
     {% include "form.html" %}
 {% endblock %}
