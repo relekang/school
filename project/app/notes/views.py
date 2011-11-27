@@ -2,6 +2,7 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render_to_response
+from django.template.context import RequestContext
 from app.notes.forms import NoteForm
 from app.notes.models import Course
 from django.views.decorators.csrf import csrf_exempt
@@ -19,7 +20,8 @@ def list (request, course=None):
         courses = Course.objects.all()
     return render_to_response('notes/base.html',
                              {'notes': notes,
-                              'courses': courses})
+                              'courses': courses},
+                              context_instance=RequestContext(request))
 @login_required
 def preview(request, id):
     return view(request, id, preview=True)
@@ -29,7 +31,8 @@ def view (request, id, preview=False):
     note = get_object_or_404(Note,pk=id)
     return render_to_response('notes/view.html',
                              {'note': note,
-                              'preview': preview})
+                              'preview': preview},
+                              context_instance=RequestContext(request))
 
 @login_required
 def edit (request, id, preview=False):
@@ -41,7 +44,8 @@ def edit (request, id, preview=False):
             note = form.save()
     return render_to_response('notes/edit.html',
                              {'note': note,
-                              'form': form})
+                              'form': form},
+                              context_instance=RequestContext(request))
 
 @csrf_exempt
 @login_required
