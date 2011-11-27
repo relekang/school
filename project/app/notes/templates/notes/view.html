@@ -3,7 +3,9 @@
 {% load i18n %}
 
 {% block nav %}
-    <a href="{% url app.notes.views.list note.course.code %}">{% trans "Back" %}</a>
+    <a href="{% url app.notes.views.list note.course.code %}"><img src="/static/icons/32/back.png" alt="{% trans "Back" %}"/></a>
+    <a href="{% url app.notes.views.edit note.pk %}"><img src="/static/icons/32/edit.png" alt="{% trans "Back" %}"/></a>
+    
 {% endblock %}
 {% block include  %}
     {% if preview %}

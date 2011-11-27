@@ -48,17 +48,25 @@ body{
     }
     nav{
         padding: 0.4em 2em;
+        width:100%;
+        overflow:hidden;
         a{
+            width:20px;
             text-decoration: none;
             display: block;
+            float:left;
+            margin: 2px;
+            img{
+                width: 20px;
+            }
         }
     }
 }
 section{
     width: 80%;
     max-width:800px;
-    margin: 1em auto;
-   h1,h2,h3,h4,h5{margin-bottom:0.4em;}
+    margin: 0 auto;
+    h1,h2,h3,h4,h5{margin-bottom:0.2em;}
     header{
         font-size: 1.8em;
     }
@@ -70,11 +78,16 @@ section{
             li{
                 padding:0;
                 list-style-type: none;
+                    border-bottom: 1px dashed silver;
                 a{
+                    max-width:80%;
                     font-size: 1.5em;
                     text-decoration:none;
-                    border-bottom: 1px dashed silver;
-                    display:block;
+                }
+                img{
+                    max-height:0.88em;
+                    line-height:1.1em;
+                    float: right;
                 }
             }
         }
@@ -143,6 +156,13 @@ section{
     }
     ul.tagit input[type="text"]{
         .box-shadow(none);
+    }
+    .tagit{
+        display:none;
+    }
+    .ajax-feedback{
+        float: right;
+        display: block;
     }
 }
 

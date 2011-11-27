@@ -7,6 +7,7 @@ from app.notes.forms import NoteForm
 from app.notes.models import Course
 from django.views.decorators.csrf import csrf_exempt
 from django.core.cache import cache
+from core.tags.models import Tag
 from project.app.notes.models import Note
 
 @login_required
@@ -17,9 +18,11 @@ def list (request, course=None):
         courses = None
     else:
         notes = None
+        course = None
         courses = Course.objects.all()
     return render_to_response('notes/base.html',
                              {'notes': notes,
+                              'course': course,
                               'courses': courses},
                               context_instance=RequestContext(request))
 @login_required
@@ -33,19 +36,45 @@ def view (request, id, preview=False):
                              {'note': note,
                               'preview': preview},
                               context_instance=RequestContext(request))
+@login_required
+def add (request, course):
+    return edit(request, course)
 
 @login_required
-def edit (request, id, preview=False):
-    note = get_object_or_404(Note,pk=id)
+def edit (request, course=False, id=False):
+    if id:
+        note = get_object_or_404(Note,pk=id)
+    else:
+        course = get_object_or_404(Course,code=course)
+        note = Note(course=course)
     form = NoteForm(instance=note)
     if request.method == 'POST':
         form = NoteForm(request.POST, instance=note)
         if form.is_valid():
             note = form.save()
+            for t in form.cleaned_data['tags']:
+                tag = Tag.objects.get_or_create(title=t)[0]
+                note.add_tag(tag)
     return render_to_response('notes/edit.html',
                              {'note': note,
                               'form': form},
                               context_instance=RequestContext(request))
+
+@login_required
+def save (request, course=False, id=False):
+    if request.method == 'POST':
+        if id:
+            note = get_object_or_404(Note,pk=id)
+        else:
+            course = get_object_or_404(Course,code=course)
+            note = Note(course=course)
+        form = NoteForm(request.POST, instance=note)
+        if form.is_valid():
+            note = form.save()
+            for t in form.cleaned_data['tags']:
+                tag = Tag.objects.get_or_create(title=t)[0]
+                note.add_tag(tag)
+    return HttpResponse('Saved')
 
 @csrf_exempt
 @login_required
@@ -60,3 +89,14 @@ def timestamp (request):
         return HttpResponse(timestamp)
     else:
         return HttpResponse(status=400)
+
+
+@login_required
+def tags (request):
+    tags = Tag.objects.all()
+    out = '['
+    for t in tags:
+        out += '"' + str(t) + '",'
+    out = out[0:len(out)-1] + ']'
+
+    return HttpResponse(out)

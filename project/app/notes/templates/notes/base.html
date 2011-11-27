@@ -2,22 +2,29 @@
 {% load i18n %}
 
 {% block nav %}
-    {% if not courses %}<a href="{% url app.notes.views.list %}">{% trans "Back" %}</a>{% endif %}
+    {% if not courses %}
+        <a href="{% url app.notes.views.list %}"><img src="/static/icons/32/back.png" alt="{% trans "Back" %}"/></a>
+        <a href="{% url app.notes.views.add course.code %}"><img src="/static/icons/32/add.png"
+                                                                 alt="{% trans "Add note" %}"/></a>
+        
+    {% endif %}
 {% endblock %}
 
 {% block content %}
     {% if notes %}
         <ul class="big-list">
-    {% for note in notes %}
-        <li><a href="{% url app.notes.views.view note.pk %}">{{ note }}</a></li>
-    {% endfor %}
+            {% for note in notes %}
+                <li><a href="{% url app.notes.views.view note.pk %}">{{ note }}</a></li>
+            {% endfor %}
         </ul>
     {% endif %}
     {% if courses %}
         <ul class="big-list">
-        {% for course in courses %}
-            <li><a href="{% url app.notes.views.list course.code %}">{{ course }}</a></li>
-        {% endfor %}
+            {% for course in courses %}
+                <li><a href="{% url app.notes.views.list course.code %}">{{ course }}</a><a
+                        href="{% url app.notes.views.add course.code %}"><img src="/static/icons/32/add.png"
+                                                                              alt="{% trans "Add" %}"></a></li>
+            {% endfor %}
         </ul>
     {% endif %}
 {% endblock %}

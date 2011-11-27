@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'south',
     'core',
+    'core.tags',
     'app.frontpage',
     'app.notes',
     # Uncomment the next line to enable admin documentation:

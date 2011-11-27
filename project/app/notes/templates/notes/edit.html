@@ -2,37 +2,42 @@
 {% load i18n %}
 
 {% block nav %}
-    <a href="{% url app.notes.views.view note.pk %}">{% trans "Back to note" %}</a>
+    {% if note.pk %}
+        <a href="{% url app.notes.views.view note.pk %}"><img src="/static/icons/32/back.png" alt="{% trans "Back" %}"/></a>
+    {% endif %}
+    <span id="ajax-feedback"></span>
 {% endblock %}
 
 {% block include %}
     <script src="/static/js/notes.edit.js"></script>
     {% if form.tags %}
-    <script>
-        function enableTags(){
-            $.ajax({
-                url: "/notes/tags/",
-                type: "GET",
-                success: function(msg){
-                    $(function(){
-                        $('#id_tags').tagit({
-                            availableTags: msg,
-                            singleField: true,
-                            singleFieldNode: $('#id_tags')
+        <script>
+            function enableTags() {
+                $.ajax({
+                    url: "/notes/tags/",
+                    type: "GET",
+                    success: function(msg) {
+                        $(function() {
+                            $('#id_tags').tagit({
+                                availableTags: msg,
+                                singleField: true,
+                                singleFieldNode: $('#id_tags')
+                            });
                         });
-                    });
-                }
-            });
-        }
-        enableTags();
-	</script>
+                    }
+                });
+            }
+            enableTags();
+        </script>
     {% endif %}
 {% endblock %}
 
 {% block content %}
-    <form method="POST">
+    <form method="POST" data-id="{{ form.instance.pk }}">
         {% csrf_token %}
-        <input type="text" id="id_title" name="title" placeholder="{% trans "Title" %}" value="{{ form.instance.title }}"/>
+        <input type="text" id="id_title" name="title" placeholder="{% trans "Title" %}"
+               value="{{ form.instance.title }}"/>
         {{ form.content }}
+        {{ form.tags }}
     </form>
 {% endblock %}
