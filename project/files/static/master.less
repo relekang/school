@@ -24,12 +24,21 @@
                                    @stop 100%);
 }
 
+@font-face{
+    font-family: 'axel';
+    src: url('/static/fonts/axel-regular.ttf');
+}
+@font-face{
+    font-family: 'axel-bold';
+    src: url('/static/fonts/axel-bold.ttf');
+}
+
 
 
 body{
     margin:0;
     padding:0;
-    font-family:sans-serif;
+    font-family: axel, sans-serif;
     font-size:0.9em;
     background:#F8F8F8;
 
@@ -39,8 +48,6 @@ body{
     }
     nav{
         padding: 0.4em 2em;
-        background: #FEFEFE;
-        border-bottom: 1px solid #888;
         a{
             text-decoration: none;
             display: block;
@@ -92,10 +99,11 @@ section{
         display:block;
         .border-radius(0.2em);
         .box-shadow();
+        font-family: axel, sans-serif;
     }
     textarea{
         height: 40em;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
     input[type=submit]{
         max-width: 100px;
@@ -115,7 +123,13 @@ section{
         .border-radius(none);
         .box-shadow(none);
         border:none;
-        border-bottom: 1px dashed silver;
+        font-family: axel-bold, axel, sans-serif;
+    }
+    #id_content{
+        background: transparent;
+        .border-radius(none);
+        .box-shadow(none);
+        border: 1px dashed silver;
     }
     #login{
         width: 200px;

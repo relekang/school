@@ -1,7 +1,15 @@
+@font-face {
+  font-family: 'axel';
+  src: url('/static/fonts/axel-regular.ttf');
+}
+@font-face {
+  font-family: 'axel-bold';
+  src: url('/static/fonts/axel-bold.ttf');
+}
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: axel, sans-serif;
   font-size: 0.9em;
   background: #F8F8F8;
 }
@@ -10,8 +18,6 @@ body a {
 }
 body nav {
   padding: 0.4em 2em;
-  background: #FEFEFE;
-  border-bottom: 1px solid #888;
 }
 body nav a {
   text-decoration: none;
@@ -67,10 +73,11 @@ section input[type=text], section input[type=password], section textarea {
   -webkit-box-shadow: inset 2px 2px 10px #dedede;
   -moz-box-shadow: inset 2px 2px 10px #dedede;
   box-shadow: inset 2px 2px 10px #dedede;
+  font-family: axel, sans-serif;
 }
 section textarea {
   height: 40em;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 section input[type=submit] {
   max-width: 100px;
@@ -102,7 +109,17 @@ section #id_title {
   -moz-box-shadow: none;
   box-shadow: none;
   border: none;
-  border-bottom: 1px dashed silver;
+  font-family: axel-bold, axel, sans-serif;
+}
+section #id_content {
+  background: transparent;
+  -moz-border-radius: none;
+  -webkit-border-radius: none;
+  border-radius: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 1px dashed silver;
 }
 section #login {
   width: 200px;
