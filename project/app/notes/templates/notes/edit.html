@@ -14,7 +14,6 @@
                 url: "/notes/tags/",
                 type: "GET",
                 success: function(msg){
-                    alert(msg);
                     $(function(){
                         $('#id_tags').tagit({
                             availableTags: msg,
@@ -31,5 +30,8 @@
 {% endblock %}
 
 {% block content %}
-    {% include "form.html" %}
+    <form method="POST">
+        <input type="text" id="id_title" name="title" placeholder="{% trans "Title" %}" value="{{ form.instance.title }}"/>
+        {{ form.content }}
+    </form>
 {% endblock %}

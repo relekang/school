@@ -92,6 +92,18 @@ section input[type=submit]:hover {
   background: -ms-linear-gradient(bottom, #aaaaaa, #dddddd);
   background: -moz-linear-gradient(center bottom, #aaaaaa 0%, #dddddd 100%);
 }
+section #id_title {
+  font-size: 2em;
+  background: transparent;
+  -moz-border-radius: none;
+  -webkit-border-radius: none;
+  border-radius: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px dashed silver;
+}
 section #login {
   width: 200px;
   margin: 4em auto;
