@@ -31,6 +31,7 @@
 
 {% block content %}
     <form method="POST">
+        {% csrf_token %}
         <input type="text" id="id_title" name="title" placeholder="{% trans "Title" %}" value="{{ form.instance.title }}"/>
         {{ form.content }}
     </form>
