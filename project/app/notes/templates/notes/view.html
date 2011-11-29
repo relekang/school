@@ -3,19 +3,24 @@
 {% load i18n %}
 
 {% block nav %}
-    <a href="{% url app.notes.views.list note.course.code %}"><img src="/static/icons/32/back.png" alt="{% trans "Back" %}"/></a>
-    <a href="{% url app.notes.views.edit note.pk %}"><img src="/static/icons/32/edit.png" alt="{% trans "Back" %}"/></a>
-    {% if preview %}
-        <a href="{% url app.notes.views.view note.pk %}"><img src="/static/icons/32/toggle.png" alt="{% trans "Back" %}"/></a>
-        <strong>[Preview]</strong>
-    {% else %}
-        <a href="{% url app.notes.views.preview note.pk %}"><img src="/static/icons/32/toggle.png" alt="{% trans "Back" %}"/></a>
+    <a href="{% url app.notes.views.list note.course.code %}"><img src="/static/icons/32/back.png"
+                                                                   alt="{% trans "Back" %}"/></a>
+    {% if request.user.is_staff %}
+        <a href="{% url app.notes.views.edit note.pk %}"><img src="/static/icons/32/edit.png" alt="{% trans "Back" %}"/></a>
+        {% if preview %}
+            <a href="{% url app.notes.views.view note.pk %}"><img src="/static/icons/32/toggle.png"
+                                                                  alt="{% trans "Back" %}"/></a>
+            <strong>[Preview]</strong>
+        {% else %}
+            <a href="{% url app.notes.views.preview note.pk %}"><img src="/static/icons/32/toggle.png"
+                                                                     alt="{% trans "Back" %}"/></a>
+        {% endif %}
     {% endif %}
 
 {% endblock %}
-{% block include  %}
+{% block include %}
     {% if preview %}
-    <script type="text/javascript" src="/static/js/notes.preview.js"></script>
+        <script type="text/javascript" src="/static/js/notes.preview.js"></script>
     {% endif %}
 {% endblock %}
 

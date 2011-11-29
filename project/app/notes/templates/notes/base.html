@@ -4,9 +4,10 @@
 {% block nav %}
     {% if not courses %}
         <a href="{% url app.notes.views.list %}"><img src="/static/icons/32/back.png" alt="{% trans "Back" %}"/></a>
-        <a href="{% url app.notes.views.add course.code %}"><img src="/static/icons/32/add.png"
-                                                                 alt="{% trans "Add note" %}"/></a>
-        
+        {% if request.user.is_staff %}
+            <a href="{% url app.notes.views.add course.code %}"><img src="/static/icons/32/add.png"
+                                                                     alt="{% trans "Add note" %}"/></a>
+        {% endif %}
     {% endif %}
 {% endblock %}
 
@@ -21,9 +22,13 @@
     {% if courses %}
         <ul class="big-list">
             {% for course in courses %}
-                <li><a href="{% url app.notes.views.list course.code %}">{{ course }}</a><a
-                        href="{% url app.notes.views.add course.code %}"><img src="/static/icons/32/add.png"
-                                                                              alt="{% trans "Add" %}"></a></li>
+                <li><a href="{% url app.notes.views.list course.code %}">{{ course }}</a>
+                    {% if request.user.is_staff %}
+                        <a href="{% url app.notes.views.add course.code %}">
+                            <img src="/static/icons/32/add.png" alt="{% trans "Add" %}">
+                        </a>
+                    {% endif %}
+                </li>
             {% endfor %}
         </ul>
     {% endif %}
