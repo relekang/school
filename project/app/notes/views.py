@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render_to_response
@@ -40,7 +41,7 @@ def view (request, id, preview=False):
 def add (request, course):
     return edit(request, course)
 
-@login_required
+@staff_member_required
 def edit (request, course=False, id=False):
     if id:
         note = get_object_or_404(Note,pk=id)
@@ -60,7 +61,7 @@ def edit (request, course=False, id=False):
                               'form': form},
                               context_instance=RequestContext(request))
 
-@login_required
+@staff_member_required
 def save (request, course=False, id=False):
     if request.method == 'POST':
         if id:
