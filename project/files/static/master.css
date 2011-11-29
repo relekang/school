@@ -67,6 +67,9 @@ section ul.big-list li img {
   line-height: 1.1em;
   float: right;
 }
+section article abbr {
+  border-bottom: 1px dotted silver;
+}
 section form {
   width: 100%;
 }
@@ -162,5 +165,17 @@ section .ajax-feedback {
   }
   section header {
     font-size: 1.4em;
+  }
+}
+@media print {
+  body {
+    background: white;
+  }
+  body:after {
+    content: 'skole.lkng.me';
+    width: 50%;
+    display: block;
+    margin: 1 auto;
+    text-align: center;
   }
 }

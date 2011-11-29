@@ -92,7 +92,9 @@ section{
             }
         }
     article{
-
+        abbr{
+            border-bottom: 1px dotted silver
+        }
     }
 
     form{
@@ -172,5 +174,19 @@ section{
         header{
             font-size: 1.4em;
         }
+    }
+}
+
+@media print{
+    body{
+        background: white;
+    }
+    body:after{
+        content: 'skole.lkng.me';
+        width: 50%;
+        display: block;
+        margin: 1 auto;
+        text-align:center;
+
     }
 }
