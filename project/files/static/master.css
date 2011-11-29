@@ -43,6 +43,10 @@ section h4,
 section h5 {
   margin-bottom: 0.2em;
 }
+section p {
+  margin-top: 0.4em;
+  margin-bottom: 1.4em;
+}
 section header {
   font-size: 1.8em;
 }
