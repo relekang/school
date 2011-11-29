@@ -49,6 +49,10 @@ section p {
 }
 section ul {
   padding: 0.5em 1.2em;
+  margin: 0;
+}
+section ul li ul {
+  padding: 0.1em 1.2em;
 }
 section header {
   font-size: 1.8em;
