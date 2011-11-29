@@ -54,6 +54,9 @@ section ul {
 section ul li ul {
   padding: 0.1em 1.2em;
 }
+section strong {
+  font-family: axel-bold;
+}
 section header {
   font-size: 1.8em;
   font-family: axel-bold;
