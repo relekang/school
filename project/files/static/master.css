@@ -47,7 +47,10 @@ section p {
   margin-top: 0.4em;
   margin-bottom: 1.4em;
 }
-section li {
+section ul {
+  padding: 0.5em 0;
+}
+section ul li {
   padding-left: 1.2em;
 }
 section header {
