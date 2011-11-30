@@ -86,8 +86,8 @@ def timestamp (request):
         if not timestamp:
             note = get_object_or_404(Note, pk=id)
             timestamp = datetime.strftime(note.date_saved, '%d.%m.%y %I:%M')
-            cache.set('notetimestamp' + id, timestamp)
-        return HttpResponse(timestamp)
+            cache.set('notetimestamp' + str(id), HttpResponse(timestamp))
+        return timestamp
     else:
         return HttpResponse(status=400)
 

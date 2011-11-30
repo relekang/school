@@ -1,5 +1,7 @@
 from datetime import datetime
 from django.db import models
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 from django.core.cache import cache
 from core.tags.models import Tag
@@ -24,4 +26,4 @@ class Note (BaseModel):
     def save(self, *args, **kwargs):
         super(Note, self).save(*args, **kwargs)
         timestamp = datetime.strftime(self.date_saved, '%d.%m.%y %I:%M')
-        cache.set('notetimestamp' + str(self.pk), timestamp)
+        cache.set('notetimestamp' + str(self.pk), HttpResponse(timestamp))
