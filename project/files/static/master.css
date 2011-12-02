@@ -85,6 +85,28 @@ section ul.big-list li img {
 section article abbr {
   border-bottom: 1px dotted silver;
 }
+section table tr th {
+  border-bottom: 1px dashed silver;
+}
+section .algorithms {
+  list-style-type: none;
+}
+section .algorithms li {
+  list-style-type: none;
+}
+section .algorithms li h2 {
+  border-bottom: 1px dashed silver;
+}
+section .algorithms li .details {
+  margin-left: 0.4em;
+}
+section .algorithms li .details ul, section .algorithms li .details ul li {
+  list-style-type: disc;
+}
+section .algorithms li .pros, section .algorithms li .cons {
+  float: left;
+  margin: 0.2em auto;
+}
 section form {
   width: 100%;
 }
@@ -181,6 +203,10 @@ section hr {
   background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+.clear {
+  float: none;
+  clear: both;
 }
 @media screen and (max-width: 400px) {
   section {

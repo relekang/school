@@ -11,6 +11,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^$', 'app.frontpage.views.frontpage'),
     (r'^profiles/me/$', 'app.frontpage.views.frontpage'),
+    (r'^algorithms/', include('app.algorithms.urls')),
     (r'^notes/', include('app.notes.urls')),
     (r'^admin/', include(admin.site.urls)),
 

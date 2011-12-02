@@ -2,6 +2,7 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 import core
+from django.core.cache import cache
 
 class BaseModel (models.Model):
     creator = models.ForeignKey(User, related_name='%(class)s_creator')

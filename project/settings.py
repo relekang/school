@@ -73,6 +73,7 @@ INSTALLED_APPS = (
     'south',
     'core',
     'core.tags',
+    'app.algorithms',
     'app.frontpage',
     'app.notes',
     # Uncomment the next line to enable admin documentation:
