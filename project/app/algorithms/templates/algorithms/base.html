@@ -18,8 +18,8 @@
                     {% if algorithm.time_worst_case %}<strong>{% trans "Worst case" %}:</strong> ${{ algorithm.time_worst_case }}$<br/>{% endif %}
 
                     <div class="description">{{ algorithm.description }}</div>
-                    <div class="pros"><strong>{% trans "Pros" %}</strong> {{ algorithm.pros|markdown }}</div>
-                    <div class="cons"><strong>{% trans "Cons" %}</strong> {{ algorithm.cons|markdown }}</div>
+                    {% if algorithm.pros %}<div class="pros"><strong>{% trans "Pros" %}</strong> {{ algorithm.pros|markdown }}</div>{% endif %}
+                    {% if algorithm.cons %}<div class="cons"><strong>{% trans "Cons" %}</strong> {{ algorithm.cons|markdown }}</div>{% endif %}
                     <div class="clear"></div>
                     <div class="tags">
                         <strong>{% trans "Tags" %}:</strong>
