@@ -8,6 +8,8 @@
 
 {% block content %}
     <form method="post">
+    {{ formset.management_form }}
+    {% csrf_token %}
     <ul class="algorithms">
         {% for form in formset %}
             <li>
@@ -20,6 +22,6 @@
             </li>
         {% endfor %}
     </ul>
+        <input type="submit" value="{% trans "Save" %}" />
     </form>
-    <input type="submit" value="{% trans "Save" %}"/>
 {% endblock %}

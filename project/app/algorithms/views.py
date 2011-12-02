@@ -1,8 +1,8 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
-from django.forms.formsets import formset_factory
+from django.core.urlresolvers import reverse
 from django.forms.models import modelformset_factory
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template.context import RequestContext
 from app.algorithms.forms import AlgorithmRunningTimeForm
 from app.algorithms.models import Algorithm, AlgorithmTag
@@ -31,9 +31,10 @@ def edit_running_time (request):
     AlgorithmFormSet = modelformset_factory(Algorithm, form=AlgorithmRunningTimeForm)
     formset = AlgorithmFormSet(queryset=algorithms)
     if request.method == 'POST':
-        formset = AlgorithmFormSet(request.POST,queryset=algorithms)
+        formset = AlgorithmFormSet(request.POST, queryset=algorithms)
         if formset.is_valid():
             formset.save()
+            return redirect(reverse('app.algorithms.views.list'),)
 
     return render_to_response('algorithms/edit_running_time.html',
                              {'formset': formset},
