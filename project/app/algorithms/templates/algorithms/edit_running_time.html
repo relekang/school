@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load markup %}
+
+{% block include %}
+    <script src="/static/js/algorithms.js"></script>
+{% endblock %}
+
+{% block content %}
+    <form method="post">
+    <ul class="algorithms">
+        {% for form in formset %}
+            <li>
+                <h2>{{ form.instance }}<hr/></h2>
+
+                <div class="details">
+                    {{ form }}
+                <hr/>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    </form>
+    <input type="submit" value="{% trans "Save" %}"/>
+{% endblock %}
