@@ -11,7 +11,7 @@
 
         {% for algorithm in algorithms %}
             <li>
-                <h2>{{ algorithm }}</h2>
+                <h2>{{ algorithm }}<hr/></h2>
 
                 <div class="details">
                     {% if algorithm.time_best_case %}<strong>{% trans "Best case" %}:</strong> ${{ algorithm.time_best_case }}$<br/>{% endif %}
@@ -25,6 +25,7 @@
                         <strong>{% trans "Tags" %}:</strong>
                         {% for tag in algorithm.tags.all %}<a href="{% url app.algorithms.views.list tag.slug %}">{{ tag }}</a>
                         {% endfor %}</div>
+                <hr/>
                 </div>
             </li>
         {% endfor %}

@@ -97,6 +97,9 @@ section .algorithms li {
 section .algorithms li h2 {
   border-bottom: 1px dashed silver;
 }
+section .algorithms li h2 hr {
+  display: none;
+}
 section .algorithms li .details {
   display: none;
   margin-left: 0.4em;
@@ -215,6 +218,28 @@ section hr {
   }
   section header {
     font-size: 1.4em;
+  }
+  section .algorithms {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  section .algorithms li h2 {
+    text-align: center;
+    border: 0;
+    margin-bottom: 0;
+  }
+  section .algorithms li h2 hr {
+    margin-bottom: 0;
+    display: block;
+  }
+  section .algorithms li .details {
+    width: 80%;
+    padding: 0.8em 10%;
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+    background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
   }
 }
 @media print {
