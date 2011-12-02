@@ -25,6 +25,6 @@ class Algorithm (BaseModel):
 
     def save(self, *args, **kwargs):
         super(Algorithm, self).save(*args, **kwargs)
-        cache.set('algorithms', Algorithm.objects.all().select_related('tags'))
+        cache.set('algorithms', list(Algorithm.objects.all().select_related('tags').order_by('name')))
         for t in self.tags.all():
-            cache.set('algorithms' + t.slug, t.algorithms.select_related('tags'))
+            cache.set('algorithms' + t.slug, list(t.algorithms.select_related('tags').order_by('name')))
