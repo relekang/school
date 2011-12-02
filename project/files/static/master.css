@@ -98,6 +98,7 @@ section .algorithms li h2 {
   border-bottom: 1px dashed silver;
 }
 section .algorithms li .details {
+  display: hidden;
   margin-left: 0.4em;
 }
 section .algorithms li .details ul, section .algorithms li .details ul li {
